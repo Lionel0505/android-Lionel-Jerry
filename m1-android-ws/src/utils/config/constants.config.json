@@ -1,0 +1,15 @@
+{
+  "messages": {
+    "success": {},
+    "error": {
+      "internal_server_error": "Erreur interne, si le problème persiste veuillez contactez un responsable.",
+      "empty_form_data": "Veuillez remplir tous les champs du formulaire, s'il vous plaît.",
+      "empty_entity": "Vérifiez la validité de vos données, puis réessayez.",
+      "save_issue": "Une erreur s' est produite lors de la sauvegarde des données, si le problème persiste veuillez contactez un responsable.",
+      "password_issue": "Mot de passe invalide!",
+      "missing_field": "{{field}} introuvable!",
+      "missing_session": "Aucun utilisateur connecté",
+      "category_mismatch": "Catégorie non correspondante"
+    }
+  }
+}
