@@ -25,7 +25,7 @@ export class ContentService {
 
             return await this.contentRepository
                 .createQueryBuilder('content')
-                .andWhere('content.type = :contentType', { contentType: contentType })
+                .andWhere('content.contentType = :contentType', { contentType: contentType })
                 .leftJoinAndSelect('content.contentCategory', 'contentCategory')
                 .andWhere('contentCategory.id = :contentCategoryId', {contentCategoryId: contentCategoryId})
                 .leftJoinAndSelect('content.childCategory', 'childCategory')
