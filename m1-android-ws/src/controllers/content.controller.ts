@@ -7,6 +7,7 @@ import { Content } from "../entity/content.entity";
 import { OpenAPI } from "routing-controllers-openapi";
 
 
+
 @JsonController('/contents')
 export class ContentController {
 
