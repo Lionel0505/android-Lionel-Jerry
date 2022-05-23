@@ -21,11 +21,11 @@ export class AuthenticationController {
 
             const result: string = await this.authenticationService.signIn(userData);
 
-            return formatResponse(200, 'Connexion réussie', result);
+            return await formatResponse(200, 'Connexion réussie', result);
 
         } catch (error: any) {
 
-            return formatResponse(error.status, error.message);
+            return await formatResponse(error.status, error.message);
 
         }
 

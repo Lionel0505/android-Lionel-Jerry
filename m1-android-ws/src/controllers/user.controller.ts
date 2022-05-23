@@ -21,11 +21,11 @@ export class UserController {
 
             const result: string = await this.userService.createUser(userData);
 
-            return formatResponse(200, 'Inscription réussie', result);
+            return await formatResponse(200, 'Inscription réussie', result);
 
         } catch (error: any) {
 
-            return formatResponse(error.status, error.message);
+            return await formatResponse(error.status, error.message);
 
         }
 

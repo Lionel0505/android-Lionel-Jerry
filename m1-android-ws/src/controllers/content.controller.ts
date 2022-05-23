@@ -7,7 +7,6 @@ import { Content } from "../entity/content.entity";
 import { OpenAPI } from "routing-controllers-openapi";
 
 
-
 @JsonController('/contents')
 export class ContentController {
 
@@ -17,11 +16,11 @@ export class ContentController {
     @Get()
     @UseBefore(authentication)
     @OpenAPI({summary: 'Return specific contents'})
-    async getContents(@Req() request: IUserRequest, @QueryParam('content_category') contentCategoryId: number) {
+    async getContents(@Req() request: IUserRequest, @QueryParam('content_category') contentCategoryId: number, @QueryParam('content_type') contentType: string) {
 
         try {
 
-            const result: Content[] = await this.contentService.findContents(request.user, contentCategoryId);
+            const result: Content[] = await this.contentService.findContents(request.user, contentCategoryId, contentType);
 
             console.log("********", await formatResponse(200, 'Données trouvées', result));
 
@@ -29,7 +28,7 @@ export class ContentController {
 
         } catch (error: any) {
 
-            return formatResponse(error.status, error.message);
+            return await formatResponse(error.status, error.message);
 
         }
 
@@ -45,11 +44,11 @@ export class ContentController {
 
             const result: Content[] = await this.contentService.searchForContents(request.user, filter);
 
-            return formatResponse(200, 'Données trouvées', result);
+            return await formatResponse(200, 'Données trouvées', result);
 
         } catch (error: any) {
 
-            return formatResponse(error.status, error.message);
+            return await formatResponse(error.status, error.message);
 
         }
 

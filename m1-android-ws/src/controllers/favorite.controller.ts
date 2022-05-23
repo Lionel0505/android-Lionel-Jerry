@@ -24,11 +24,11 @@ export class FavoriteController {
 
             const result: Favorite[] = await this.favoriteService.findFavorites(request.user);
 
-            return formatResponse(200, 'Données trouvées', result);
+            return await formatResponse(200, 'Données trouvées', result);
 
         } catch (error: any) {
 
-            return formatResponse(error.status, error.message);
+            return await formatResponse(error.status, error.message);
 
         }
 
@@ -45,11 +45,11 @@ export class FavoriteController {
 
             const result: Favorite = await this.favoriteService.addToFavorites(request.user, favoriteData);
 
-            return formatResponse(200, 'Données trouvées', result);
+            return await formatResponse(200, 'Données trouvées', result);
 
         } catch (error: any) {
 
-            return formatResponse(error.status, error.message);
+            return await formatResponse(error.status, error.message);
 
         }
 
